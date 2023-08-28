@@ -12,7 +12,10 @@ class BattleshipGame:
         self.computer_battlefield = BattlefieldGenerator.generate_battlefield(rows, cols)
 
     def user_place_ships(self):
-        pass
+        for _ in range(self.user_ships):
+            print(f"\nPlace your ship ({self.user_ships - _} left)")
+            row, col = 1, 4
+            BattlefieldGenerator.place_ship(self.user_battlefield, row, col)
 
     def computer_place_ships(self):
         pass
@@ -27,5 +30,5 @@ class BattleshipGame:
         pass
 
     def play(self):
+        self.user_place_ships()
         print(self.user_battlefield)
-        print(self.computer_battlefield)
