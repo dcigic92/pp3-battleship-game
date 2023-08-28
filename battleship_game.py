@@ -40,7 +40,15 @@ class BattleshipGame:
                 print(f"Invalid input: {e}. Please enter a valid coordinates.")
 
     def user_attack(self):
-        pass
+        print("\nYour Turn to Attack!")
+        row, col = self.get_valid_coordinates()
+        if self.computer_battlefield[row][col] == "S":
+            print("You hit a computer's ship!")
+            self.computer_battlefield[row][col] = "X"
+            self.computer_ships -= 1
+        else:
+            print("You missed!")
+            self.computer_battlefield[row][col] = "#"
 
     def computer_attack(self):
         pass
