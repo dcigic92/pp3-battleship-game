@@ -1,5 +1,5 @@
+from battleship_game import BattleshipGame
 
-print("Welcome to Battleship Game")
 
 def main():
 
@@ -8,4 +8,6 @@ def main():
     ships = int(input("Enter the number of ships: "))
     game = BattleshipGame(rows, cols, ships)
 
+
+print("Welcome to Battleship Game")
 main()
