@@ -48,5 +48,6 @@ class BattleshipGame:
     def play(self):
         self.user_place_ships()
         self.computer_place_ships()
-        print(self.user_battlefield)
-        print(self.computer_battlefield)
+        BattlefieldGenerator.print_battlefield(self.user_battlefield)
+        print()
+        BattlefieldGenerator.print_battlefield(self.computer_battlefield)

@@ -13,3 +13,10 @@ class BattlefieldGenerator:
     @staticmethod
     def random_coordinates(rows, cols):
         return random.randint(0, rows - 1), random.randint(0, cols - 1)
+    
+    @staticmethod
+    def print_battlefield(battlefield):
+        for row in battlefield:
+            for cell in row:
+                print(cell, end=" ")                
+            print()
