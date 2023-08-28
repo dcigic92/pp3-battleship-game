@@ -14,14 +14,23 @@ class BattleshipGame:
     def user_place_ships(self):
         for _ in range(self.user_ships):
             print(f"\nPlace your ship ({self.user_ships - _} left)")
-            row, col = 1, 4
+            row, col = self.get_valid_coordinates()
             BattlefieldGenerator.place_ship(self.user_battlefield, row, col)
 
     def computer_place_ships(self):
         pass
 
     def get_valid_coordinates(self):
-        pass
+        while True:
+            try:
+                row = int(input(f"Enter row (0 to {self.rows - 1}): "))
+                col = int(input(f"Enter column (0 to {self.cols - 1}): "))
+                if 0 <= row < self.rows and 0 <= col < self.cols:
+                    return row, col
+                else:
+                    raise ValueError("you entered invalid coordinates")
+            except ValueError as e:
+                print(f"Invalid input: {e}. Please enter a valid coordinates.")
 
     def user_attack(self):
         pass
