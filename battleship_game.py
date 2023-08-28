@@ -18,7 +18,14 @@ class BattleshipGame:
             BattlefieldGenerator.place_ship(self.user_battlefield, row, col)
 
     def computer_place_ships(self):
-        pass
+        computer_ships_placed = 0
+        print("Computer placing ships...")
+
+        while computer_ships_placed < self.computer_ships:
+            row, col = BattlefieldGenerator.random_coordinates(self.rows, self.cols)
+            if self.computer_battlefield[row][col] == "-":
+                BattlefieldGenerator.place_ship(self.computer_battlefield, row, col)
+                computer_ships_placed += 1
 
     def get_valid_coordinates(self):
         while True:
@@ -40,4 +47,6 @@ class BattleshipGame:
 
     def play(self):
         self.user_place_ships()
+        self.computer_place_ships()
         print(self.user_battlefield)
+        print(self.computer_battlefield)
