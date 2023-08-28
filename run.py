@@ -36,5 +36,5 @@ def main():
     game.play()
 
 
-print("Welcome to the Battleship Game")
+print("\nWelcome to the Battleship Game!\n")
 main()
