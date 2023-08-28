@@ -51,7 +51,15 @@ class BattleshipGame:
             self.computer_battlefield[row][col] = "#"
 
     def computer_attack(self):
-        pass
+        print("\nComputer's Turn to Attack!")
+        row, col = BattlefieldGenerator.random_coordinates(self.rows, self.cols)
+        if self.user_battlefield[row][col] == "S":
+            print("Computer hit your ship!")
+            self.user_battlefield[row][col] = "X"
+            self.user_ships -= 1
+        else:
+            print("Computer missed!")
+            self.user_battlefield[row][col] = "#"
 
     def play(self):
         self.user_place_ships()
