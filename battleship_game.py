@@ -42,23 +42,28 @@ class BattleshipGame:
         print("\nYour Turn to Attack!")
         row, col = self.get_valid_coordinates()
         if self.computer_battlefield[row][col] == "S":
-            print("You hit a computer's ship!")
-            self.computer_battlefield[row][col] = "X"
+            print("\nYou hit a computer's ship!")
+            self.computer_battlefield[row][col] = "+"
             self.computer_ships -= 1
+        elif self.computer_battlefield[row][col] == "+" or self.computer_battlefield[row][col] == "x":
+            print("\nYou already attacked on that coordinates! Please choose again.")
+            self.user_attack()
         else:
-            print("You missed!")
-            self.computer_battlefield[row][col] = "#"
+            print("\nYou missed!")
+            self.computer_battlefield[row][col] = "x"
 
     def computer_attack(self):
         print("\nComputer's Turn to Attack!")
         row, col = BattlefieldGenerator.random_coordinates(self.rows, self.cols)
         if self.user_battlefield[row][col] == "S":
-            print("Computer hit your ship!")
-            self.user_battlefield[row][col] = "X"
+            print("\nComputer hit your ship!")
+            self.user_battlefield[row][col] = "+"
             self.user_ships -= 1
+        elif self.user_battlefield[row][col] == "+" or self.user_battlefield[row][col] == "x":
+            self.computer_attack()
         else:
-            print("Computer missed!")
-            self.user_battlefield[row][col] = "#"
+            print("\nComputer missed!")
+            self.user_battlefield[row][col] = "x"
 
     def play(self):
         self.user_place_ships()
