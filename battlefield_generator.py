@@ -16,7 +16,16 @@ class BattlefieldGenerator:
     
     @staticmethod
     def print_battlefield(battlefield):
+        letters = ["A", "B", "C", "D", "E", "F", "G", "H"]
+        space = " "
+        i = 1
+        print(space, end=" ")
+        for letter in range(len(battlefield[0])):
+            print(letters[letter], end=" ")
+        print()
         for row in battlefield:
+            print(i, end=" ")
             for cell in row:
-                print(cell, end=" ")                
+                print(cell, end=" ")     
+            i += 1           
             print()
