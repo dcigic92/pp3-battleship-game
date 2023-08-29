@@ -1,36 +1,23 @@
 from battleship_game import BattleshipGame
 
 
+def take_user_input(input_type, min_value, max_value):
+    while True:
+        try:
+            user_input = int(input(f"Enter the number of {input_type} (between {min_value} and {max_value}): "))
+            if min_value <= user_input <= max_value:
+                return user_input
+            else:
+              raise ValueError(
+                  f"number of {input_type} must be between {min_value} and {max_value}, you entered number {user_input}"
+                  )
+        except ValueError as e:
+            print(f"Invalid input: {e}. Please enter a valid number.")
+
 def main():
-    while True:
-        try:
-            rows = int(input("Enter the number of rows (between 5 and 8): "))
-            if 5 <= rows <= 8:
-                break
-            else:
-                raise ValueError(f"Number of rows must be between 5 and 8, you entered number {rows}")
-        except ValueError as e:
-            print(f"Invalid input: {e}. Please enter a valid number.")
-
-    while True:
-        try:
-            cols = int(input("Enter the number of columns (between 5 and 8): "))
-            if 5 <= cols <= 8:
-                break
-            else:
-                raise ValueError(f"Number of columns must be between 5 and 8, you entered number {cols}")
-        except ValueError as e:
-            print(f"Invalid input: {e}. Please enter a valid number.")
-
-    while True:
-        try:
-            num_ships = int(input("Enter the number of ships (4 or 5): "))
-            if num_ships in [4, 5]:
-                break
-            else:
-                raise ValueError(f"Number of ships must be either 4 or 5, you entered number {num_ships}")
-        except ValueError as e:
-            print(f"Invalid input: {e}. Please enter a valid number.")
+    rows = take_user_input("rows", 5, 8)
+    cols = take_user_input("columns", 5, 8)
+    num_ships = take_user_input("ships", 4, 6)
 
     game = BattleshipGame(rows, cols, num_ships)
     game.play()
