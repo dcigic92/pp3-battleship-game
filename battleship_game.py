@@ -19,7 +19,6 @@ class BattleshipGame:
 
     def computer_place_ships(self):
         computer_ships_placed = 0
-        print("Computer placing ships...")
 
         while computer_ships_placed < self.computer_ships:
             row, col = BattlefieldGenerator.random_coordinates(self.rows, self.cols)
@@ -64,6 +63,23 @@ class BattleshipGame:
     def play(self):
         self.user_place_ships()
         self.computer_place_ships()
-        BattlefieldGenerator.print_battlefield(self.user_battlefield)
-        print()
-        BattlefieldGenerator.print_battlefield(self.computer_battlefield)
+
+        while self.user_ships > 0 and self.computer_ships > 0:
+            print("\nYour Battlefield:\n")
+            BattlefieldGenerator.print_battlefield(self.user_battlefield)
+
+            print(f"\nComputer's ships remaining: {self.computer_ships}")
+            print(f"\nYour ships remaining: {self.user_ships}")
+
+            print("\nComputer's Battlefield:\n")
+            BattlefieldGenerator.print_battlefield(self.computer_battlefield)
+
+            self.user_attack()
+            if self.computer_ships == 0:
+                print("\nCongratulations! You sunk all the computer's ships! You won!")
+                break
+
+            self.computer_attack()
+            if self.user_ships == 0:
+                print("\nOh no! All your ships are sunk! You lost!")
+                break
