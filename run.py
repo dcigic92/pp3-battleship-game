@@ -24,5 +24,5 @@ def main():
     game.play()
 
 
-print(c.BOLD + "\nWelcome to the Battleship Game!\n" + c.RESET)
+print(c.BOLD + "\n" + c.TITLE + "\n" + c.RESET)
 main()
