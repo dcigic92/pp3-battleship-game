@@ -4,11 +4,22 @@
 
 ***[Live version](https://dcigic92-pp3-battleship-game-e0f029a41560.herokuapp.com/)*** created by **Dino Cigic**.
 
+## Deployment
+
+This project was deployed on Heroku.
+
+- Steps for deployment:
+    - Create a new Heroku app.
+    - In Heroku's settings add config var (key PORT, value 8000).
+    - Set the buildbacks to Python and NodeJS in that order.
+    - Link the Heroku app to the Github repository.
+    - Click on deploy.
+
 ## Credits
 
 ### Code
 
-- A lot of python code learned on [W3Schools](https://www.w3schools.com/).
+- A lot of python code learned on [W3Schools](https://www.w3schools.com/) and [Stack Overflow](https://stackoverflow.com/).
 - ACII art title taken from [patorjk](https://patorjk.com/software/taag/#p=display&f=Stforek&t=BATTLESHIP%20GAME).
 
 ## Acknowledgements
