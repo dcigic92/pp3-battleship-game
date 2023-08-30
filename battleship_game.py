@@ -69,16 +69,17 @@ class BattleshipGame:
 
     def computer_attack(self):
         print("\nComputer's Turn to Attack!")
-        row, col = BattlefieldGenerator.random_coordinates(self.rows, self.cols)
-        if self.user_battlefield[row][col] == "S":
-            print("\nComputer hit your ship!")
-            self.user_battlefield[row][col] = "+"
-            self.user_ships -= 1
-        elif self.user_battlefield[row][col] == "+" or self.user_battlefield[row][col] == "x":
-            self.computer_attack()
-        else:
-            print("\nComputer missed!")
-            self.user_battlefield[row][col] = "x"
+        while True:
+            row, col = BattlefieldGenerator.random_coordinates(self.rows, self.cols)
+            if self.user_battlefield[row][col] == "S":
+                print("\nComputer hit your ship!")
+                self.user_battlefield[row][col] = "+"
+                self.user_ships -= 1
+                break
+            elif self.user_battlefield[row][col] == "-":
+                print("\nComputer missed!")
+                self.user_battlefield[row][col] = "x"
+                break
 
     def play(self):
         self.user_place_ships()
@@ -86,13 +87,13 @@ class BattleshipGame:
 
         while self.user_ships > 0 and self.computer_ships > 0:
             print("\nYour Battlefield:\n")
-            BattlefieldGenerator.print_battlefield(self.user_battlefield)
+            BattlefieldGenerator.print_battlefield(self.user_battlefield, "n")
 
-            print(f"\nComputer's ships remaining: {self.computer_ships}")
             print(f"\nYour ships remaining: {self.user_ships}")
+            print(f"\nComputer's ships remaining: {self.computer_ships}")
 
             print("\nComputer's Battlefield:\n")
-            BattlefieldGenerator.print_battlefield(self.computer_battlefield)
+            BattlefieldGenerator.print_battlefield(self.computer_battlefield, "y")
 
             self.user_attack()
             if self.computer_ships == 0:

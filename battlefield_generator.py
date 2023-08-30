@@ -15,17 +15,19 @@ class BattlefieldGenerator:
         return random.randint(0, rows - 1), random.randint(0, cols - 1)
     
     @staticmethod
-    def print_battlefield(battlefield):
+    def print_battlefield(battlefield, if_computer):
         letters = ["A", "B", "C", "D", "E", "F", "G", "H"]
-        space = " "
         i = 1
-        print(space, end=" ")
+        print(" ", end=" ")
         for letter in range(len(battlefield[0])):
             print(letters[letter], end=" ")
         print()
         for row in battlefield:
             print(i, end=" ")
             for cell in row:
-                print(cell, end=" ")     
+                if cell == "S" and if_computer == "y":
+                    print("-", end=" ")    
+                else:
+                    print(cell, end=" ")
             i += 1           
             print()
