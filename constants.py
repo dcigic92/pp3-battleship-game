@@ -5,6 +5,7 @@ GRAY = "\033[90m"
 YELLOW = "\033[93m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
+CLEAR = "\033c"
 
 SHIP_MISS_SYMBOL = "x"
 SHIP_HIT_SYMBOL = "+"

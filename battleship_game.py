@@ -14,7 +14,7 @@ class BattleshipGame:
 
     def user_place_ships(self):
         for _ in range(self.user_ships):
-            print(c.BOLD + f"\nPlace your ship ({self.user_ships - _} left)" + c.RESET)
+            print(c.BOLD + f"\nPlace your ship ({self.user_ships - _} left)\n" + c.RESET)
             while True:
                 try:
                     row, col = self.get_valid_coordinates()
@@ -40,8 +40,8 @@ class BattleshipGame:
         dict_key_letters = {"A":0, "B":1, "C":2, "D":3, "E":4, "F":5, "G":6, "H":7}
         while True:
             try:
-                row = int(input(c.GRAY + f"\nEnter row (1 to {self.rows}): \n" + c.RESET))
-                col = (input(c.GRAY + f"Enter column (A to {dict_key_num[self.cols-1]}): \n" + c.RESET)).upper()
+                row = int(input(c.GRAY + c.BOLD + f"Enter row (1 to {self.rows}): \n" + c.RESET))
+                col = (input(c.GRAY + c.BOLD + f"Enter column (A to {dict_key_num[self.cols-1]}): \n" + c.RESET)).upper()
                 row -= 1
                 if col in dict_key_letters:
                     col = dict_key_letters[col]
@@ -55,7 +55,7 @@ class BattleshipGame:
                 print(c.RED + f"\nInvalid input: {e}. Please enter a valid coordinates.\n" + c.RESET)
 
     def user_attack(self):
-        print(c.BOLD + "\nYour Turn to Attack!" + c.RESET)
+        print(c.BOLD + "\nYour Turn to Attack!\n" + c.RESET)
         row, col = self.get_valid_coordinates()
         if self.computer_battlefield[row][col] == c.SHIP_SYMBOL:
             print(c.GREEN + "\nYou hit a computer's ship!" + c.RESET)
@@ -101,6 +101,7 @@ class BattleshipGame:
                 print(c.GREEN + "\nCongratulations! You sunk all the computer's ships! You won!" + c.RESET)
                 print(c.BOLD + "\nComputer's Battlefield:\n" + c.RESET)
                 BattlefieldGenerator.print_battlefield(self.computer_battlefield, c.YES)
+                print()
                 break
 
             self.computer_attack()
@@ -108,4 +109,5 @@ class BattleshipGame:
                 print(c.RED + "\nOh no! All your ships are sunk! You lost!" + c.RESET)
                 print(c.BOLD + "\nYour Battlefield:\n" + c.RESET)
                 BattlefieldGenerator.print_battlefield(self.user_battlefield, c.NO)
+                print()
                 break
