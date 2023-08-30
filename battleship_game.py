@@ -40,8 +40,8 @@ class BattleshipGame:
         dict_key_letters = {"A":0, "B":1, "C":2, "D":3, "E":4, "F":5, "G":6, "H":7}
         while True:
             try:
-                row = int(input(c.GRAY + f"\nEnter row (1 to {self.rows}): " + c.RESET))
-                col = (input(c.GRAY + f"Enter column (A to {dict_key_num[self.cols-1]}): " + c.RESET)).upper()
+                row = int(input(c.GRAY + f"\nEnter row (1 to {self.rows}): \n" + c.RESET))
+                col = (input(c.GRAY + f"Enter column (A to {dict_key_num[self.cols-1]}): \n" + c.RESET)).upper()
                 row -= 1
                 if col in dict_key_letters:
                     col = dict_key_letters[col]

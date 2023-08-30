@@ -5,7 +5,8 @@ from battleship_game import BattleshipGame
 def take_user_input(input_type, min_value, max_value):
     while True:
         try:
-            user_input = int(input(c.GRAY + f"Enter the number of {input_type} (between {min_value} and {max_value}): " + c.RESET))
+            user_input = int(input(c.GRAY + f"Enter the number of {input_type} (between {min_value} and {max_value}): \n" 
+                                   + c.RESET))
             if min_value <= user_input <= max_value:
                 return user_input
             else:
