@@ -3,7 +3,12 @@ from battlefield_generator import BattlefieldGenerator
 
 
 class BattleshipGame:
+    """
+    The main class for the game which contains the game logic.
+    Also contains the methods to place ships, get valid coordinates from the user, attack and play game.
+    """
     def __init__(self, rows, cols, num_ships):
+        # Constructor to initialize the game
         self.rows = rows
         self.cols = cols
         self.user_ships = num_ships
@@ -13,6 +18,10 @@ class BattleshipGame:
         self.computer_battlefield = BattlefieldGenerator.generate_battlefield(rows, cols)
 
     def user_place_ships(self):
+        """
+        Method to place ships for the user. This method uses for loop to loop through range of ships.
+        Inside for loop is while loop, if on given coordinates is not empty field it will raise value error and loop again.
+        """
         for _ in range(self.user_ships):
             print(c.BOLD + f"\nPlace your ship ({self.user_ships - _} left)\n" + c.RESET)
             while True:
@@ -27,6 +36,10 @@ class BattleshipGame:
                     print(c.RED + f"\nInvalid input: {e}. Please enter a valid coordinates.\n" + c.RESET)
 
     def computer_place_ships(self):
+        """
+        Method to place ships for the computer. This method uses counter and while loop.
+        If field is not empty it will loop again.
+        """
         computer_ships_placed = 0
 
         while computer_ships_placed < self.computer_ships:
@@ -36,6 +49,10 @@ class BattleshipGame:
                 computer_ships_placed += 1
 
     def get_valid_coordinates(self):
+        """
+        Get valid coordinates from the user with error validation. 
+        Converting numbers to grid of numbers and letters which is presented to user and back to list indexes.
+        """
         dict_key_num = {0:"A", 1:"B", 2:"C", 3:"D", 4:"E", 5:"F", 6:"G", 7:"H"}
         dict_key_letters = {"A":0, "B":1, "C":2, "D":3, "E":4, "F":5, "G":6, "H":7}
         while True:
@@ -55,6 +72,10 @@ class BattleshipGame:
                 print(c.RED + f"\nInvalid input: {e}. Please enter a valid coordinates.\n" + c.RESET)
 
     def user_attack(self):
+        """
+        Method to attack the computer. 
+        It will check if ship is hit and if user already attacked on chosen coordinates.
+        """
         while True:
             try:
                 print(c.BOLD + "\nYour Turn to Attack!\n" + c.RESET)
@@ -74,6 +95,10 @@ class BattleshipGame:
                 print(c.RED + f"\nInvalid input: {e}. Please enter a valid coordinates." + c.RESET)
 
     def computer_attack(self):
+        """
+        Method to attack the user and check if ship is on given coordinates or if field is empty.
+        Otherwise it will loop again.
+        """
         print(c.BOLD + "\nComputer's Turn to Attack!" + c.RESET)
         while True:
             row, col = BattlefieldGenerator.random_coordinates(self.rows, self.cols)
@@ -88,6 +113,9 @@ class BattleshipGame:
                 break
 
     def play(self):
+        """
+        Main method to play the game. This method runs other game methods.
+        """
         self.user_place_ships()
         self.computer_place_ships()
 
