@@ -4,6 +4,15 @@
 
 ***[Live version](https://dcigic92-pp3-battleship-game-e0f029a41560.herokuapp.com/)*** created by **Dino Cigic**.
 
+## Technologies Used
+- Python
+- [Heroku](https://heroku.com/)
+- [Git](https://git-scm.com/)
+- [Github](https://github.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [W3Schools](https://www.w3schools.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+
 ## Deployment
 
 This project was deployed on Heroku.
