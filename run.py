@@ -17,6 +17,8 @@ def take_user_input(input_type, min_value, max_value):
             print(c.RED + f"\nInvalid input: {e}. Please enter a valid number.\n" + c.RESET)
 
 def main():
+    print(c.BOLD + "\n" + c.TITLE + "\n" + c.RESET)
+    
     rows = take_user_input("rows", 5, 8)
     cols = take_user_input("columns", 5, 8)
     num_ships = take_user_input("ships", 4, 6)
@@ -25,5 +27,4 @@ def main():
     game.play()
 
 
-print(c.BOLD + "\n" + c.TITLE + "\n" + c.RESET)
 main()
