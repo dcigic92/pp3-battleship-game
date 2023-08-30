@@ -55,18 +55,23 @@ class BattleshipGame:
                 print(c.RED + f"\nInvalid input: {e}. Please enter a valid coordinates.\n" + c.RESET)
 
     def user_attack(self):
-        print(c.BOLD + "\nYour Turn to Attack!\n" + c.RESET)
-        row, col = self.get_valid_coordinates()
-        if self.computer_battlefield[row][col] == c.SHIP_SYMBOL:
-            print(c.GREEN + "\nYou hit a computer's ship!" + c.RESET)
-            self.computer_battlefield[row][col] = c.SHIP_HIT_SYMBOL
-            self.computer_ships -= 1
-        elif self.computer_battlefield[row][col] == c.SHIP_HIT_SYMBOL or self.computer_battlefield[row][col] == c.SHIP_MISS_SYMBOL:
-            print(c.RED + "\nYou already attacked on that coordinates! Please choose again.\n" + c.RESET)
-            self.user_attack()
-        else:
-            print(c.YELLOW + "\nYou missed!" + c.RESET)
-            self.computer_battlefield[row][col] = c.SHIP_MISS_SYMBOL
+        while True:
+            try:
+                print(c.BOLD + "\nYour Turn to Attack!\n" + c.RESET)
+                row, col = self.get_valid_coordinates()
+                if self.computer_battlefield[row][col] == c.SHIP_SYMBOL:
+                    print(c.GREEN + "\nYou hit a computer's ship!" + c.RESET)
+                    self.computer_battlefield[row][col] = c.SHIP_HIT_SYMBOL
+                    self.computer_ships -= 1
+                    break
+                elif self.computer_battlefield[row][col] == c.EMPTY_FIELD_SYMBOL:
+                    print(c.YELLOW + "\nYou missed!" + c.RESET)
+                    self.computer_battlefield[row][col] = c.SHIP_MISS_SYMBOL
+                    break
+                else:
+                    raise ValueError("you already attacked on chosen coordinates")
+            except ValueError as e:
+                print(c.RED + f"\nInvalid input: {e}. Please enter a valid coordinates." + c.RESET)
 
     def computer_attack(self):
         print(c.BOLD + "\nComputer's Turn to Attack!" + c.RESET)

@@ -32,7 +32,7 @@ def play_again():
                 print(c.RED + f"\nInvalid input: {e}. Please try again.\n" + c.RESET)
 
 def main():
-    print(c.CYAN + "\n" + c.TITLE + "\n" + c.RESET)
+    print(c.CYAN + c.TITLE + c.RESET)
 
     rows = take_user_input("rows", 5, 8)
     cols = take_user_input("columns", 5, 8)
