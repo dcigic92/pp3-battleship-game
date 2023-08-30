@@ -1,3 +1,4 @@
+import constants as c
 from battlefield_generator import BattlefieldGenerator
 
 
@@ -13,7 +14,7 @@ class BattleshipGame:
 
     def user_place_ships(self):
         for _ in range(self.user_ships):
-            print(f"\nPlace your ship ({self.user_ships - _} left)")
+            print(c.BOLD + f"\nPlace your ship ({self.user_ships - _} left)" + c.RESET)
             while True:
                 try:
                     row, col = self.get_valid_coordinates()
@@ -23,7 +24,7 @@ class BattleshipGame:
                     else:
                         raise ValueError("you already placed ship there")
                 except ValueError as e:
-                    print(f"\nInvalid input: {e}. Please enter a valid coordinates.")
+                    print(c.RED + f"\nInvalid input: {e}. Please enter a valid coordinates.\n" + c.RESET)
 
     def computer_place_ships(self):
         computer_ships_placed = 0
@@ -39,8 +40,8 @@ class BattleshipGame:
         dict_key_letters = {"A":0, "B":1, "C":2, "D":3, "E":4, "F":5, "G":6, "H":7}
         while True:
             try:
-                row = int(input(f"Enter row (1 to {self.rows}): "))
-                col = (input(f"Enter column (A to {dict_key_num[self.cols-1]}): ")).upper()
+                row = int(input(c.GRAY + f"\nEnter row (1 to {self.rows}): " + c.RESET))
+                col = (input(c.GRAY + f"Enter column (A to {dict_key_num[self.cols-1]}): " + c.RESET)).upper()
                 row -= 1
                 if col in dict_key_letters:
                     col = dict_key_letters[col]
@@ -51,33 +52,33 @@ class BattleshipGame:
                 else:
                     raise ValueError("you entered invalid coordinates")
             except ValueError as e:
-                print(f"Invalid input: {e}. Please enter a valid coordinates.")
+                print(c.RED + f"\nInvalid input: {e}. Please enter a valid coordinates.\n" + c.RESET)
 
     def user_attack(self):
-        print("\nYour Turn to Attack!")
+        print(c.BOLD + "\nYour Turn to Attack!" + c.RESET)
         row, col = self.get_valid_coordinates()
         if self.computer_battlefield[row][col] == "S":
-            print("\nYou hit a computer's ship!")
+            print(c.GREEN + "\nYou hit a computer's ship!" + c.RESET)
             self.computer_battlefield[row][col] = "+"
             self.computer_ships -= 1
         elif self.computer_battlefield[row][col] == "+" or self.computer_battlefield[row][col] == "x":
-            print("\nYou already attacked on that coordinates! Please choose again.")
+            print(c.RED + "\nYou already attacked on that coordinates! Please choose again.\n" + c.RESET)
             self.user_attack()
         else:
-            print("\nYou missed!")
+            print(c.YELLOW + "\nYou missed!" + c.RESET)
             self.computer_battlefield[row][col] = "x"
 
     def computer_attack(self):
-        print("\nComputer's Turn to Attack!")
+        print(c.BOLD + "\nComputer's Turn to Attack!" + c.RESET)
         while True:
             row, col = BattlefieldGenerator.random_coordinates(self.rows, self.cols)
             if self.user_battlefield[row][col] == "S":
-                print("\nComputer hit your ship!")
+                print(c.RED + "\nComputer hit your ship!" + c.RESET)
                 self.user_battlefield[row][col] = "+"
                 self.user_ships -= 1
                 break
             elif self.user_battlefield[row][col] == "-":
-                print("\nComputer missed!")
+                print(c.YELLOW + "\nComputer missed!" + c.RESET)
                 self.user_battlefield[row][col] = "x"
                 break
 
@@ -86,21 +87,25 @@ class BattleshipGame:
         self.computer_place_ships()
 
         while self.user_ships > 0 and self.computer_ships > 0:
-            print("\nYour Battlefield:\n")
+            print(c.BOLD + "\nYour Battlefield:\n" + c.RESET)
             BattlefieldGenerator.print_battlefield(self.user_battlefield, "n")
 
-            print(f"\nYour ships remaining: {self.user_ships}")
-            print(f"\nComputer's ships remaining: {self.computer_ships}")
+            print(c.CYAN + f"\nYour ships remaining: {self.user_ships}")
+            print(f"\nComputer's ships remaining: {self.computer_ships}" + c.RESET)
 
-            print("\nComputer's Battlefield:\n")
+            print(c.BOLD + "\nComputer's Battlefield:\n" + c.RESET)
             BattlefieldGenerator.print_battlefield(self.computer_battlefield, "y")
 
             self.user_attack()
             if self.computer_ships == 0:
-                print("\nCongratulations! You sunk all the computer's ships! You won!")
+                print(c.GREEN + "\nCongratulations! You sunk all the computer's ships! You won!" + c.RESET)
+                print(c.BOLD + "\nComputer's Battlefield:\n" + c.RESET)
+                BattlefieldGenerator.print_battlefield(self.computer_battlefield, "y")
                 break
 
             self.computer_attack()
             if self.user_ships == 0:
-                print("\nOh no! All your ships are sunk! You lost!")
+                print(c.RED + "\nOh no! All your ships are sunk! You lost!" + c.RESET)
+                print(c.BOLD + "\nYour Battlefield:\n" + c.RESET)
+                BattlefieldGenerator.print_battlefield(self.user_battlefield, "n")
                 break

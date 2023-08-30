@@ -1,3 +1,4 @@
+import constants as c
 import random
 
 
@@ -26,8 +27,14 @@ class BattlefieldGenerator:
             print(i, end=" ")
             for cell in row:
                 if cell == "S" and if_computer == "y":
-                    print("-", end=" ")    
+                    print(c.GRAY + "-" + c.RESET, end=" ")
+                elif cell == "S":
+                    print(c.CYAN + cell + c.RESET, end=" ")
+                elif cell == "+":
+                    print(c.RED + cell + c.RESET, end=" ")
+                elif cell == "x":
+                    print(c.YELLOW + cell + c.RESET, end=" ")
                 else:
-                    print(cell, end=" ")
+                    print(c.GRAY + cell + c.RESET, end=" ")
             i += 1           
             print()

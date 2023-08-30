@@ -1,10 +1,11 @@
+import constants as c
 from battleship_game import BattleshipGame
 
 
 def take_user_input(input_type, min_value, max_value):
     while True:
         try:
-            user_input = int(input(f"Enter the number of {input_type} (between {min_value} and {max_value}): "))
+            user_input = int(input(c.GRAY + f"Enter the number of {input_type} (between {min_value} and {max_value}): " + c.RESET))
             if min_value <= user_input <= max_value:
                 return user_input
             else:
@@ -12,7 +13,7 @@ def take_user_input(input_type, min_value, max_value):
                   f"number of {input_type} must be between {min_value} and {max_value}, you entered number {user_input}"
                   )
         except ValueError as e:
-            print(f"Invalid input: {e}. Please enter a valid number.")
+            print(c.RED + f"\nInvalid input: {e}. Please enter a valid number.\n" + c.RESET)
 
 def main():
     rows = take_user_input("rows", 5, 8)
@@ -23,5 +24,5 @@ def main():
     game.play()
 
 
-print("\nWelcome to the Battleship Game!\n")
+print(c.BOLD + "\nWelcome to the Battleship Game!\n" + c.RESET)
 main()
