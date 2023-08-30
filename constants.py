@@ -6,6 +6,14 @@ YELLOW = "\033[93m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
 
+SHIP_MISS_SYMBOL = "x"
+SHIP_HIT_SYMBOL = "+"
+SHIP_SYMBOL = "S"
+EMPTY_FIELD_SYMBOL = "-"
+
+YES = "y"
+NO = "n"
+
 TITLE = r"""
 
 ██████╗  █████╗ ████████╗████████╗██╗     ███████╗███████╗██╗  ██╗██╗██████╗      ██████╗  █████╗ ███╗   ███╗███████╗

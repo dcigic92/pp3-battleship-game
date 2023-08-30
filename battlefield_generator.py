@@ -9,7 +9,7 @@ class BattlefieldGenerator:
     
     @staticmethod
     def place_ship(battlefield, row, col):
-        battlefield[row][col] = "S"
+        battlefield[row][col] = c.SHIP_SYMBOL
 
     @staticmethod
     def random_coordinates(rows, cols):
@@ -26,13 +26,13 @@ class BattlefieldGenerator:
         for row in battlefield:
             print(i, end=" ")
             for cell in row:
-                if cell == "S" and if_computer == "y":
+                if cell == c.SHIP_SYMBOL and if_computer == "y":
                     print(c.GRAY + "-" + c.RESET, end=" ")
-                elif cell == "S":
+                elif cell == c.SHIP_SYMBOL:
                     print(c.CYAN + cell + c.RESET, end=" ")
-                elif cell == "+":
+                elif cell == c.SHIP_HIT_SYMBOL:
                     print(c.RED + cell + c.RESET, end=" ")
-                elif cell == "x":
+                elif cell == c.SHIP_MISS_SYMBOL:
                     print(c.YELLOW + cell + c.RESET, end=" ")
                 else:
                     print(c.GRAY + cell + c.RESET, end=" ")
