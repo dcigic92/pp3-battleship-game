@@ -45,7 +45,7 @@ class BattleshipGame:
                     print(
                         c.RED +
                         f"\nInvalid input: {e}. Please enter a"
-                        f"valid coordinates.\n"
+                        f" valid coordinates.\n"
                         + c.RESET)
 
     def computer_place_ships(self):
@@ -96,7 +96,7 @@ class BattleshipGame:
                 print(
                     c.RED +
                     f"\nInvalid input: {e}. Please enter a valid"
-                    f"coordinates.\n"
+                    f" coordinates.\n"
                     + c.RESET)
 
     def user_attack(self):
@@ -170,7 +170,7 @@ class BattleshipGame:
                 print(
                     c.GREEN +
                     "\nCongratulations! You sunk all the computer's ships!"
-                    f"You won!"
+                    f" You won!"
                     + c.RESET)
                 print(c.BOLD + "\nComputer's Battlefield:\n" + c.RESET)
                 BattlefieldGenerator.print_battlefield(

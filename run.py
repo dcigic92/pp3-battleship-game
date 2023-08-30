@@ -13,17 +13,17 @@ def take_user_input(input_type, min_value, max_value):
             user_input = int(input(
                 c.GRAY + c.BOLD +
                 f"Enter the number of {input_type} (between {min_value}"
-                f"and {max_value}): \n"
+                f" and {max_value}): \n"
                 + c.RESET))
             if min_value <= user_input <= max_value:
                 return user_input
             else:
                 raise ValueError(
                     f"number of {input_type} must be between {min_value}"
-                    f"and {max_value}, you entered number {user_input}")
+                    f" and {max_value}, you entered number {user_input}")
         except ValueError as e:
             print(c.RED + f"\nInvalid input: {e}. Please enter a"
-                        + f"valid number.\n"
+                        + f" valid number.\n"
                         + c.RESET)
 
 
@@ -44,7 +44,7 @@ def play_again():
                 print(c.CLEAR)
                 main()
             elif user_input == c.NO:
-                print(c.BOLD + "\nThank you for playing. Goodbye" + c.RESET)
+                print(c.BOLD + "\nThank you for playing. Goodbye." + c.RESET)
                 break
             else:
                 raise ValueError(

@@ -4,6 +4,24 @@
 
 ***[Live version](https://dcigic92-pp3-battleship-game-e0f029a41560.herokuapp.com/)*** created by **Dino Cigic**.
 
+## Features
+
+### Existing features
+
+- User can choose the size of the board and number of ships.
+- User can choose where to put his ships.
+- Computer's ships are placed randomly.
+- Computer's ships are not visible to the user.
+- User can see his ships on the board, ships hit by user and computer, missed hits by user and computer.
+- After every round user can see remaining user's and computer's ships.
+- Different colors used in the game.
+- At the end of the games user is asked to play again.
+- Input validation implemented.
+
+### Future features
+
+- To have bigger ships (more than 1x1).
+
 ## Technologies Used
 - Python
 - [Heroku](https://heroku.com/)
