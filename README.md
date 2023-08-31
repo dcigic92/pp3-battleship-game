@@ -4,6 +4,25 @@
 
 ***[Live version](https://dcigic92-pp3-battleship-game-e0f029a41560.herokuapp.com/)*** created by **Dino Cigic**.
 
+***
+
+## Contents
+
+- [Features](#features)
+    - [Existing features](#existing-features)
+    - [Future features](#future-features)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [PEP8 Python Validation](#pep8-python-validation)
+    - [Resolved bugs/issues](#resolved-bugsissues)
+    - [Unresolved bugs/issues](#unresolved-bugsissues)
+- [Deployment](#deployment)
+- [Credits](#credits)
+    - [Content](#content)
+    - [Code](#code)
+- [Acknowledgements](#acknowledgements)
+
 ## Features
 
 ### Existing features
@@ -15,7 +34,7 @@
 - User can see his ships on the board, ships hit by user and computer, missed hits by user and computer.
 - After every round user can see remaining user's and computer's ships.
 - Different colors used in the game.
-- At the end of the games user is asked to play again.
+- At the end of the game user is asked to play again.
 - Input validation implemented.
 
 ### Future features
@@ -37,13 +56,18 @@
 ### Manual testing
 Tested by playing a lot of times looking for bugs and by intentionally giving invalid inputs.
 
-### PEP8 Python Validator
+### PEP8 Python Validation
 The PEP8 Python Validator (CI Python Linter) was used to validate all Python files. All files passed with no errors.
 
-### Bugs
+### Resolved bugs/issues
+
 - Had bug where it was possible to attack more than once on the same coordinates. Fixed it with while loop, if there is no ship on given coordinates and it's not empty field, it will loop again.
 
 - Had bug where it was possible to put more ships on the same coordinates. Fixed it with while loop, if on given coordinates is not empty field it will loop again.
+
+### Unresolved bugs/issues
+
+- No unresolved issues.
 
 ## Deployment
 
@@ -57,6 +81,10 @@ This project was deployed on Heroku.
     - Click on deploy.
 
 ## Credits
+
+### Content
+
+- Some parts of readme file were inspired by readme for ULTIMATE Battleships from [Code institute](https://learn.codeinstitute.net/dashboard).
 
 ### Code
 
