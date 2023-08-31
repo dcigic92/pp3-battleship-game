@@ -1,6 +1,8 @@
 # Battleship Game
 
-**Battleship Game is a Python terminal game which runs on Heroku. Users are supposed to beat the computer by sinking all of the computer's battleships before computer sinks theirs. Each battleship occupies one field on the grid.**
+**Battleship Game is a Python terminal game which runs on Heroku. Users are supposed to beat the computer by sinking all of the computer's battleships before computer sinks theirs. Each battleship occupies one field on the grid(board).**
+
+![battleship_game](assets/images/battleship_game.png)
 
 ***[Live version](https://dcigic92-pp3-battleship-game-e0f029a41560.herokuapp.com/)*** created by **Dino Cigic**.
 
@@ -84,12 +86,12 @@ This project was deployed on Heroku.
 
 ### Content
 
-- Some parts of readme file were inspired by readme for ULTIMATE Battleships from [Code institute](https://learn.codeinstitute.net/dashboard).
+- Some parts of the readme file were inspired by readme for ULTIMATE Battleships from [Code institute](https://learn.codeinstitute.net/dashboard).
 
 ### Code
 
 - A lot of python code learned on [W3Schools](https://www.w3schools.com/) and [Stack Overflow](https://stackoverflow.com/).
-- ASCII art title taken from [patorjk](https://patorjk.com/software/taag/#p=display&f=Stforek&t=BATTLESHIP%20GAME).
+- ASCII art for title taken from [patorjk](https://patorjk.com/software/taag/#p=display&f=Stforek&t=BATTLESHIP%20GAME).
 
 ## Acknowledgements
 
